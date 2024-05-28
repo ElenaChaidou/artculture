@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import EventModal from './EventModal';
+import { useFavorites } from './FavoritesContext'; // Adjusted path to FavoritesContext
 
 function CardItemE(props) {
+  const { addFavorite } = useFavorites();
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -21,6 +23,9 @@ function CardItemE(props) {
 
   const handleHeartClick = (e) => {
     e.stopPropagation(); // Prevent event from reaching parent elements
+    if (!isHeartRed) {
+      addFavorite(props);
+    }
     setIsHeartRed(!isHeartRed);
   };
 

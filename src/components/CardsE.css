@@ -7,8 +7,7 @@ body {
   padding: 0;
 }
 
-h1,
-p {
+h1, p {
   margin: 0;
   padding: 0;
 }
@@ -27,6 +26,7 @@ p {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .button {
@@ -57,11 +57,12 @@ p {
 
 h1 {
   text-align: center;
+  color: #000;
 }
 
 .cardsE__container {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   align-items: center;
   max-width: 1200px;
   width: 100%;
@@ -71,23 +72,24 @@ h1 {
 .cardsE__wrapper {
   position: relative;
   margin: 50px 0 45px;
+  width: 100%;
 }
 
 .cardsE__items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0;
   list-style: none;
   margin-bottom: 24px;
 }
 
 .cardsE__item {
-  flex: 1 1 calc(25% - 2rem);
+  flex: 1 1 300px;
   margin: 0.5rem;
   border-radius: 10px;
   box-sizing: border-box;
-  max-width: calc(25% - 1rem);
+  max-width: 300px;
 }
 
 .cardsE__item__link {
@@ -157,11 +159,6 @@ h1 {
   font-size: 18px;
   line-height: 24px;
   margin: 5px 0;
-}
-
-.cardsE.search-active .cardsE__item {
-  flex: 1 1 calc(100.0% - 40rem);
-  max-width: calc(100.0% - 5rem);
 }
 
 @media only screen and (max-width: 1200px) {
@@ -279,9 +276,6 @@ h1 {
   margin-right: 10px;
 }
 
-
-
-
 .rating .on .star {
   color: gold;
 }
@@ -312,4 +306,37 @@ h1 {
 
 .custom-date-input:hover {
   color: #007bff;
+}
+
+/* Additional Styles for No Events Message */
+.no-events-message {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #252e48;
+  margin-top: 2rem;
+}
+.button.reset-button {
+  background-color: #ff4d4d;
+  color: #fff;
+}
+
+.button.reset-button:hover {
+  background-color: #ff1a1a;
+}
+
+.past-events-button {
+  border: 1px solid #000;
+  background: transparent;
+  margin-left: 10px;
+  border-radius: 25px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  right: 0;
+  top: -70px; /* Adjust this value to move the button higher */
+}
+
+.past-events-button:hover {
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0);
 }
