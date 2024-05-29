@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/artculture/static/css/main.15559ca3.css",
-    "main.js": "/artculture/static/js/main.411370e7.js",
-    "static/media/image-3.jpg": "/artculture/static/media/image-3.e1449dff8e57975fb5ad.jpg",
+    "main.css": "/artculture/static/css/main.1edae848.css",
+    "main.js": "/artculture/static/js/main.5e414820.js",
     "static/media/image-2.jpg": "/artculture/static/media/image-2.6ffb68eff52ad32f1ac6.jpg",
     "static/media/image-1.jpg": "/artculture/static/media/image-1.6967c15765b7e6db2a1e.jpg",
     "index.html": "/artculture/index.html",
-    "main.15559ca3.css.map": "/artculture/static/css/main.15559ca3.css.map",
-    "main.411370e7.js.map": "/artculture/static/js/main.411370e7.js.map"
+    "main.1edae848.css.map": "/artculture/static/css/main.1edae848.css.map",
+    "main.5e414820.js.map": "/artculture/static/js/main.5e414820.js.map"
   },
   "entrypoints": [
-    "static/css/main.15559ca3.css",
-    "static/js/main.411370e7.js"
+    "static/css/main.1edae848.css",
+    "static/js/main.5e414820.js"
   ]
 }
