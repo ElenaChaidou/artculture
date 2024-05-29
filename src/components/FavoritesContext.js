@@ -1,9 +1,10 @@
-// FavoritesContext.js
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
 const FavoritesContext = createContext();
 
-export const useFavorites = () => useContext(FavoritesContext);
+export const useFavorites = () => {
+  return useContext(FavoritesContext);
+};
 
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
@@ -12,12 +13,14 @@ export const FavoritesProvider = ({ children }) => {
     setFavorites((prevFavorites) => [...prevFavorites, item]);
   };
 
-  const isFavorite = (item) => {
-    return favorites.some(fav => fav.id === item.id);
+  const removeFavorite = (id) => {
+    setFavorites((prevFavorites) =>
+      prevFavorites.filter((item) => item.id !== id)
+    );
   };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addFavorite, isFavorite }}>
+    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite }}>
       {children}
     </FavoritesContext.Provider>
   );

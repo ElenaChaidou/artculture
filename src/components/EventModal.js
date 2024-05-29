@@ -8,7 +8,7 @@ function EventModal({ show, onClose, event }) {
 
   return (
     <div className="modal-overlay">
-      <div className="modal">
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
         <button className="close-button" onClick={onClose}>
           &times;
         </button>
@@ -17,10 +17,11 @@ function EventModal({ show, onClose, event }) {
         </figure>
         <div className='modal__info'>
           <h2 className='modal__title'>{event.title}</h2>
-          <p className='modal__text'>Ημέρα: {event.day}</p>
-          <p className='modal__text'>time: {event.time}</p>
-          <p className='modal__text'>Τοποθεσία: {event.location}</p>
-          <p className='modal__text'>Πληροφορίες: {event.description}</p>
+          <p className='modal__text'><strong>Ημέρα:</strong> {event.day}</p>
+          <p className='modal__text'><strong>Ώρα:</strong> {event.time}</p>
+          <p className='modal__text'><strong>Τιμή:</strong> {event.price}</p>
+          <p className='modal__text'><strong>Τοποθεσία:</strong> {event.location}</p>
+          <p className='modal__text'><strong>Πληροφορίες:</strong> {event.description}</p>
         </div>
       </div>
     </div>

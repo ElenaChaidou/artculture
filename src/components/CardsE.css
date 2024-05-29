@@ -162,13 +162,39 @@ h1 {
 }
 
 @media only screen and (max-width: 1200px) {
-  .cardsE__items {
-    flex-direction: column;
+  .cardsE__item {
+    flex: 1 1 45%; /* Adjust for larger screens */
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .cardsE__item {
+    flex: 1 1 100%; /* Adjust for tablets */
   }
 
+  .searchInput_Container,
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .searchInput_Container input,
+  .searchInput_Container .custom-date-input,
+  .searchInput_Container .button,
+  .buttons-container .button {
+    width: 100%;
+    max-width: 300px;
+    margin: 5px 0;
+  }
+}
+
+@media only screen and (max-width: 576px) {
   .cardsE__item {
-    max-width: 100%;
-    margin-bottom: 2rem;
+    flex: 1 1 100%; /* Adjust for phones */
+  }
+
+  .cardsE__item__info {
+    padding: 10px;
   }
 }
 
@@ -308,7 +334,6 @@ h1 {
   color: #007bff;
 }
 
-/* Additional Styles for No Events Message */
 .no-events-message {
   text-align: center;
   font-size: 1.5rem;
@@ -334,9 +359,97 @@ h1 {
   transition: all 0.2s ease-in-out;
   position: absolute;
   right: 0;
-  top: -70px; /* Adjust this value to move the button higher */
+  top: -70px; 
 }
 
 .past-events-button:hover {
   box-shadow: 3px 3px 0px 0px rgba(0, 0, 0);
+}
+
+@media only screen and (max-width: 768px) {
+  .past-events-button {
+    position: static;
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .past-events-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.remove-button:hover {
+  background-color: darkred;
+}
+.confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+}
+
+.modal-content .button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+/* CardsE.css */
+
+/* CardsE.css */
+
+.back-button-container {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.back-button:hover {
+  background-color: #ffffff;
+}
+
+.back-button .fa-arrow-left {
+  margin-right: 8px;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.css'; // Corrected import statement
+import './Button.css'; 
 import { Link } from 'react-router-dom';
 
 const STYLES = ['btn--primary', 'btn--outline'];
@@ -12,13 +12,13 @@ export const Button = ({
   buttonStyle,
   buttonSize
 }) => {
-  const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0]; // Corrected SYLES to STYLES
-  const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]; // Corrected ButtonSize to buttonSize
+  const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0]; 
+  const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0]; 
 
   return (
     <Link to='/sign-up' className='btn-mobile'>
       <button
-        className={`btn ${checkButtonStyle} ${checkButtonSize}`} // Used backticks for string interpolation
+        className={`btn ${checkButtonStyle} ${checkButtonSize}`} 
         onClick={onClick}
         type={type}
       >

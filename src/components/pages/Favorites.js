@@ -1,19 +1,19 @@
 import React, { useState, useEffect, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useFavorites } from '../FavoritesContext'; // Ensure correct relative path
-import CardItemE from '../CardItemE'; // Import the CardItemE component
+import { useFavorites } from '../FavoritesContext';
+import CardItemE from '../CardItemE';
 import '../CardsE.css';
-import 'react-datepicker/dist/react-datepicker.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Favorites() {
-  const { favorites } = useFavorites();
+  const { favorites, removeFavorite } = useFavorites();
   const [filteredFavorites, setFilteredFavorites] = useState(favorites);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [cardToRemove, setCardToRemove] = useState(null);
 
   const filters = ["Τέχνη", "Βιβλίο", "Θέατρο", "Σινεμά", "Επιστήμη", "Μουσική"];
 
@@ -23,6 +23,13 @@ function Favorites() {
       setSelectedFilters(filters);
     } else {
       setSelectedFilters([...selectedFilters, selectedCategory]);
+    }
+  };
+
+  const handleRemoveFavorite = () => {
+    if (cardToRemove !== null) {
+      removeFavorite(cardToRemove);
+      setCardToRemove(null);
     }
   };
 
@@ -111,9 +118,9 @@ function Favorites() {
           <div className='cardsE__wrapper'>
             <ul className='cardsE__items'>
               {filteredFavorites.length > 0 ? (
-                filteredFavorites.map((item, index) => (
+                filteredFavorites.map((item) => (
                   <CardItemE
-                    key={index}
+                    key={item.id}
                     id={item.id}
                     src={item.src}
                     title={item.title}
@@ -123,6 +130,10 @@ function Favorites() {
                     label={item.label}
                     path={item.path}
                     description={item.description}
+                    initialHeartRed={true}
+                    isFavorite={true}
+                    onRemove={() => setCardToRemove(item.id)}
+                    showRemoveButton={true}
                   />
                 ))
               ) : (
@@ -132,6 +143,17 @@ function Favorites() {
           </div>
         </div>
       </div>
+      <button className="past-events-button">Past Events</button>
+
+      {cardToRemove !== null && (
+        <div className="confirmation-modal">
+          <div className="modal-content">
+            <p>Are you sure you want to remove this card from favorites?</p>
+            <button className="button" onClick={handleRemoveFavorite}>Yes</button>
+            <button className="button" onClick={() => setCardToRemove(null)}>No</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
