@@ -121,6 +121,7 @@ function CardsE() {
                     location={item.location}
                     label={item.label}
                     path={item.path}
+                    price={item.price}
                     description={item.description}
                   />
                 ))
