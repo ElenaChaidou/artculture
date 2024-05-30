@@ -4,7 +4,8 @@ import { useFavorites } from './FavoritesContext';
 import './CardsE.css';
 
 function CardItemE(props) {
-  const { addFavorite } = useFavorites();
+  const favoritesContext = useFavorites();
+  const addFavorite = favoritesContext ? favoritesContext.addFavorite : null;
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -24,7 +25,7 @@ function CardItemE(props) {
 
   const handleHeartClick = (e) => {
     e.stopPropagation();
-    if (!props.isFavorite && !isHeartRed) {
+    if (addFavorite && !props.isFavorite && !isHeartRed) {
       addFavorite(props);
       setIsHeartRed(true);
     }
@@ -71,13 +72,15 @@ function CardItemE(props) {
               })}
             </div>
           </div>
-          <button
-            className={`heart-icon ${isHeartRed || props.isFavorite ? 'red' : ''}`}
-            onClick={handleHeartClick}
-            disabled={props.isFavorite}
-          >
-            <span role="img" aria-label="heart">&#9829;</span>
-          </button>
+          {addFavorite && (
+            <button
+              className={`heart-icon ${isHeartRed || props.isFavorite ? 'red' : ''}`}
+              onClick={handleHeartClick}
+              disabled={props.isFavorite}
+            >
+              <span role="img" aria-label="heart">&#9829;</span>
+            </button>
+          )}
           {props.showRemoveButton && (
             <button className="remove-button" onClick={handleRemoveClick}>
               Remove

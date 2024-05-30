@@ -8,22 +8,32 @@ import Favorites from './components/pages/Favorites';
 import PastEvents from './components/pages/PastEvents';
 import { FavoritesProvider } from './components/FavoritesContext';
 import Footer from './components/Footer';
-import HeroSection from './components/HeroSection';
 
 function App() {
   return (
     <>
       <Router basename={process.env.PUBLIC_URL}>
         <Navbar />
-        <FavoritesProvider>
+        
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/past-events" element={<PastEvents />} />
-          <Route path="/" exact component={HeroSection} />         
+          <Route 
+            path="/past-events" 
+            element={<PastEvents />} 
+          />
+          <Route 
+            path="*" 
+            element={
+              <FavoritesProvider>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/events" element={<Events />} />
+                  <Route path="/favorites" element={<Favorites />} />
+                </Routes>
+              </FavoritesProvider>
+            } 
+          />
         </Routes>
-        </FavoritesProvider>
+        
         <Footer />
       </Router>
     </>
