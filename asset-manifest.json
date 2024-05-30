@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/artculture/static/css/main.ff152d57.css",
-    "main.js": "/artculture/static/js/main.a2caa04c.js",
+    "main.js": "/artculture/static/js/main.e55860da.js",
     "static/media/image-2.jpg": "/artculture/static/media/image-2.6ffb68eff52ad32f1ac6.jpg",
     "static/media/image-1.jpg": "/artculture/static/media/image-1.6967c15765b7e6db2a1e.jpg",
     "index.html": "/artculture/index.html",
     "main.ff152d57.css.map": "/artculture/static/css/main.ff152d57.css.map",
-    "main.a2caa04c.js.map": "/artculture/static/js/main.a2caa04c.js.map"
+    "main.e55860da.js.map": "/artculture/static/js/main.e55860da.js.map"
   },
   "entrypoints": [
     "static/css/main.ff152d57.css",
-    "static/js/main.a2caa04c.js"
+    "static/js/main.e55860da.js"
   ]
 }
